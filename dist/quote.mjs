@@ -198,12 +198,13 @@ class i {
    *
    */
   renderSettings() {
-    return this.settings.map((t) => ({
-      icon: t.icon,
-      name: t.name,
-      label: this.api.i18n.t(`Align ${t.name}`),
-      onActivate: () => this._toggleTune(t.name),
-      isActive: this.data.alignment === t.name,
+    const t = (e) => e[0].toUpperCase() + e.substr(1);
+    return this.settings.map((e) => ({
+      icon: e.icon,
+      name: e.name,
+      label: this.api.i18n.t(`Align ${t(e.name)}`),
+      onActivate: () => this._toggleTune(e.name),
+      isActive: this.data.alignment === e.name,
       closeOnActivate: !0
     }));
   }
